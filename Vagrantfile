@@ -27,7 +27,7 @@ synced_webroot_group = "vagrant"
 
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "cyvaquero/centos-6.6_base"
+	config.vm.box = "ubuntu/vivid64"
 	config.vm.boot_timeout = 180
 
 	config.vm.provider "virtualbox" do |v|

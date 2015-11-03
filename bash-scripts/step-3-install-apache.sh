@@ -5,20 +5,17 @@ echo " "
 echo "BEGIN installing and configuring apache ..."
 
 #install apache
-if [ ! -d "/etc/httpd" ]; then
-	yum install httpd -y > /dev/null
-	yum install mod_perl -y > /dev/null
+if [ ! -d "/etc/apache2" ]; then
+	apt-get install apache2 -y > /dev/null
+	apt-get install mod_perl -y > /dev/null
 fi
 
 echo "... Configuring apache ..."
 # copy our modified apache config files
-cp /vagrant/configs/httpd.conf /etc/httpd/conf
+cp /vagrant/configs/apache2.conf /etc/apache2/
 
 # restart apache
-service httpd restart > /dev/null
-
-# set apache to start at boot
-chkconfig httpd on > /dev/null
+service apache2 restart > /dev/null
 
 echo "... End installing and configuring apache."
 echo " "
